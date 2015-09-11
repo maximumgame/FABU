@@ -97,6 +97,10 @@ int main()
 				}
 				isPatchFile = true;
 			}
+			else if (string(v.first.data()).compare((string)patchFiles[i]) == 0 && string(v.second.data()).compare(szReport) == 0)
+			{
+				patchFiles.erase(patchFiles.begin() + i);
+			}
 		}
 
 		if (string(v.second.data()).compare(szReport) != 0 && !isPatchFile)
