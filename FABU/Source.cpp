@@ -106,7 +106,8 @@ int main()
 		if (string(v.second.data()).compare(szReport) != 0 && !isPatchFile)
 		{
 			cout << "downloading...." << endl;
-			DeleteUrlCacheEntry((baseurl + (string)v.first.data()).c_str());
+			DeleteUrlCacheEntry((baseurl + v.first.data()).c_str());
+			HRESULT hr = URLDownloadToFile(NULL, _T((baseurl + v.first.data()).c_str()), _T(((string)v.first.data()).c_str()), 0, NULL);
 			if (hr != S_OK)
 			{
 				cout << "URL FAIL: " << baseurl + v.first << endl;
