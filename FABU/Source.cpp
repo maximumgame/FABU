@@ -86,7 +86,7 @@ int main()
 
 		for (int i = 0; i < patchFiles.size(); i++)
 		{
-			if (string(v.first.data()).compare((string)patchFiles[i]) == 0 && string(v.second.data()).compare(szReport) != 0)
+			if (string(v.first.data()).compare(patchFiles[i]) == 0 && string(v.second.data()).compare(szReport) != 0)
 			{
 				createFolders(("_dewbackup\\" + (string)v.first.data()));
 				DeleteUrlCacheEntry((baseurl + (string)v.first.data() + ".bspatch").c_str());
@@ -97,7 +97,7 @@ int main()
 				}
 				isPatchFile = true;
 			}
-			else if (string(v.first.data()).compare((string)patchFiles[i]) == 0 && string(v.second.data()).compare(szReport) == 0)
+			else if (string(v.first.data()).compare(patchFiles[i]) == 0 && string(v.second.data()).compare(szReport) == 0)
 			{
 				patchFiles.erase(patchFiles.begin() + i);
 			}
@@ -107,7 +107,6 @@ int main()
 		{
 			cout << "downloading...." << endl;
 			DeleteUrlCacheEntry((baseurl + (string)v.first.data()).c_str());
-			HRESULT hr = URLDownloadToFile(NULL, _T((baseurl + (string)v.first.data()).c_str()), _T(((string)v.first.data()).c_str()), 0, NULL);
 			if (hr != S_OK)
 			{
 				cout << "URL FAIL: " << baseurl + v.first << endl;
