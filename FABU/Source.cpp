@@ -27,8 +27,17 @@ void PatchFile(string file);
 
 IBSPatch* pIBSPatch;
 
-int main()
+int main(int argc, char* argv[])
 {
+	string args = "";
+	if (argc > 1)
+	{
+		for (int i = 0; i < argc; i++)
+		{
+			args += argv[i];
+			args.append(" ");
+		}
+	}
 	boost::property_tree::ptree pt;
 	string file = "https://dew.halo.click/update_server/update.json";
 	ifstream dew("dewrito.json");
@@ -171,8 +180,8 @@ int main()
 		}
 	}
 	CoUninitialize();
-
-	system("start eldorado.exe -launcher");
+	if (args.find("-nolaunch") == string::npos)
+		system("start eldorado.exe -launcher");
 }
 
 void createFolders(string str)
