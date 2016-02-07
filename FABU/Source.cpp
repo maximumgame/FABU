@@ -39,7 +39,7 @@ int main(int argc, char* argv[])
 		}
 	}
 	boost::property_tree::ptree pt;
-	string file = "https://dew.halo.click/update_server/update.json";
+	string file = "http://eldewrito.anvilonline.net/update.json";
 	ifstream dew("dewrito.json");
 	if (dew)
 	{

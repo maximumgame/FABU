@@ -69,3 +69,8 @@ Temporary Items
 .apdisk
 
 *.filters
+*.vcxproj
+FABU.VC.opendb
+*.vcxproj
+FABU/FABU.vcxproj
+*.vcxproj
